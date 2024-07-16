@@ -22,10 +22,11 @@ public class OrderClient {
                 .post(ORDER_CREATE_ENDPOINT);
     }
 
-    @Step("Send get request to api/ingredients/")
+    @Step("Send get request to api/ingredients")
     public static Response getIngredientsFromOrder() {
         return given()
                 .spec(Specification.requestSpecification())
+                .when()
                 .get(ORDER_INGREDIENT_ENDPOINT);
     }
 
@@ -34,6 +35,7 @@ public class OrderClient {
         return given()
                 .spec(Specification.requestSpecification())
                 .headers("Authorization", bearerToken)
+                .when()
                 .get(ORDER_USER_ENDPOINT);
     }
 }

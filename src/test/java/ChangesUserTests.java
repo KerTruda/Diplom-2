@@ -31,7 +31,7 @@ public class ChangesUserTests {
     @Epic(value = "User's test")
     @DisplayName("Изменение данных пользователя с авторизацией")
     @Description("Проверка изменения данных существующего пользователя с авторизацией")
-    public void changeDataUserWithAuthorization(){
+    public void changeUserWithAuthorization(){
         User userChange = getRandomUser();
         Response responsePatch = userClient.patchUser(userChange, bearerToken);
         assertEquals("Статус код неверный", SC_OK, responsePatch.statusCode());
@@ -42,7 +42,7 @@ public class ChangesUserTests {
     @Epic(value = "User's test")
     @DisplayName("Изменение данных пользователя без авторизации")
     @Description("Проверка изменения данных существующего пользователя без авторизации")
-    public void changeDataUserWithoutAuthorization(){
+    public void changeUserWithoutAuthorization(){
         User userChange = getRandomUser();
         bearerToken = "";
         Response responsePatch = userClient.patchUser(userChange, bearerToken);

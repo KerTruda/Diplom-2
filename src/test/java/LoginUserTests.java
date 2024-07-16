@@ -30,7 +30,7 @@ public class LoginUserTests {
 
     @Test
     @Epic(value = "User's test")
-    @DisplayName("Логин под существующим пользователем")
+    @DisplayName("Вход под существующим пользователем")
     @Description("Проверка авторизации под существующим пользователем")
     public void loginUser() {
         Response responseLogin = userClient.loginUser(user);
@@ -40,7 +40,7 @@ public class LoginUserTests {
 
     @Test
     @Epic(value = "User's test")
-    @DisplayName("Логин с неверным паролем")
+    @DisplayName("Вход с неверным паролем")
     @Description("Проверка авторизации с неверным паролем")
     public void loginUserWithWrongPassword() {
         user.setPassword(randomString(12));
@@ -51,7 +51,7 @@ public class LoginUserTests {
 
     @Test
     @Epic(value = "User's test")
-    @DisplayName("Логин с неверным email")
+    @DisplayName("Вход с неверным email")
     @Description("Проверка авторизации с неверным email")
     public void loginUserWithWrongEmail() {
         user.setEmail(randomEmail());

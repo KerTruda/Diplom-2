@@ -28,20 +28,18 @@ public class CreateUserTests {
     @Epic(value = "User's test")
     @DisplayName("Создание уникального пользователя")
     @Description("Проверка создание уникального пользователя")
-    public void createUserTest() {
+    public void createUser() {
         Response response = userClient.registerUser(user);
         bearerToken = response.path("accessToken");
-        assertEquals("Статус код неверный при создании пользователя",
-                SC_OK, response.statusCode());
-        assertEquals("Неверное сообщение при успешном создании пользователя",
-                true, response.path("success"));
+        assertEquals("Статус код неверный", SC_OK, response.statusCode());
+        assertEquals(true, response.path("success"));
     }
 
     @Test
     @Epic(value = "User's test")
-    @DisplayName("Создание не уникального пользователя")
-    @Description("Проверка создания  не уникального пользователя")
-    public void createAlreadyExistsUserTest() {
+    @DisplayName("Создание существующего пользователя")
+    @Description("Проверка создания существующего пользователя")
+    public void createAlreadyExistsUser() {
         Response responseFirst = userClient.registerUser(user);
         bearerToken = responseFirst.path("accessToken");
         Response responseSecond = userClient.registerUser(user);
@@ -53,7 +51,7 @@ public class CreateUserTests {
     @Epic(value = "User's test")
     @DisplayName("Создание пользователя без имени")
     @Description("Проверка пользователя без имени")
-    public void createUserWithoutNameTest() {
+    public void createUserWithoutName() {
         user.setName("");
         Response response = userClient.registerUser(user);
         bearerToken = response.path("accessToken");
@@ -65,7 +63,7 @@ public class CreateUserTests {
     @Epic(value = "User's test")
     @DisplayName("Создание пользователя без email")
     @Description("Проверка пользователя без email")
-    public void createUserWithoutEmailTest() {
+    public void createUserWithoutEmail() {
         user.setEmail("");
         Response response = userClient.registerUser(user);
         bearerToken = response.path("accessToken");
@@ -77,7 +75,7 @@ public class CreateUserTests {
     @Epic(value = "User's test")
     @DisplayName("Создание пользователя без пароля")
     @Description("Проверка пользователя без пароля")
-    public void createUserWithoutPasswordTest() {
+    public void createUserWithoutPassword() {
         user.setPassword("");
         Response response = userClient.registerUser(user);
         bearerToken = response.path("accessToken");

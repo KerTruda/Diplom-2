@@ -50,8 +50,8 @@ public class CreateOrderTests {
 
     @Test
     @Epic(value = "Order's test")
-    @DisplayName("Создание заказа без авторизацией")
-    @Description("Проверка создания заказа без авторизацией")
+    @DisplayName("Создание заказа без авторизации")
+    @Description("Проверка создания заказа без авторизации")
     public void createOrderWithoutAuthorization() {
         bearerToken = "";
         Response responseCreateOrder = orderClient.createOrder(order, bearerToken);

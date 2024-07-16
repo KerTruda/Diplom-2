@@ -47,8 +47,8 @@ public class GetUserOrderTests {
 
     @Test
     @Epic(value = "Order's test")
-    @DisplayName("Получение заказов неавторизованного пользователя")
-    @Description("Проверка получения заказов неавторизованного пользователя")
+    @DisplayName("Получение заказов не авторизованного пользователя")
+    @Description("Проверка получения заказов не авторизованного пользователя")
     public void getOrderUserWithoutAuthorization() {
         bearerToken = "";
         Response responseGetOrderUser = orderClient.getOrderUser(bearerToken);

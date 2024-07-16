@@ -1,13 +1,11 @@
 package ru.yandex.praktikum.user;
 
 import io.qameta.allure.Step;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import ru.yandex.praktikum.models.User;
 import ru.yandex.praktikum.utils.Specification;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 
 public class UserClient {
     private static final String USER_LOGIN_ENDPOINT = "api/auth/login";
@@ -48,7 +46,6 @@ public class UserClient {
         return given()
                 .spec(Specification.requestSpecification())
                 .header("Authorization", bearerToken)
-                .contentType(ContentType.JSON)
                 .body(user)
                 .when()
                 .patch(USER_PATCH_ENDPOINT);
